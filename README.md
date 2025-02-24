@@ -1,14 +1,10 @@
 # Report for assignment 4
 
-This is a template for your report. You are free to modify it as needed.
-It is not required to use markdown for your report either, but the report
-has to be delivered in a standard, cross-platform format.
-
 ## Project
 
-Name:
+Name: toga
 
-URL:
+URL: https://github.com/beeware/toga
 
 One or two sentences describing it
 
@@ -22,7 +18,7 @@ If you changed the project, how did your experience differ from before?
 
 For each team member, how much time was spent in
 
-1. plenary discussions/meetings;
+1. plenary discussions/meetings; 2 hours on 24/2, 
 
 2. discussions within parts of the group;
 
