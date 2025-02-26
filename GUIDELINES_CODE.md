@@ -10,6 +10,10 @@ COMMIT NAME FORMAT:
 
 Of course change `ios` to your specific thing.
 
+TESTING GUIDELINES
+==================
+All new test cases should refer to a requirement by the requirement ID listed in our README.md
+
 Submitting a pull request
 =========================
 
