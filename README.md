@@ -15,24 +15,15 @@ Did you choose a new project or continue on the previous one?
 If you changed the project, how did your experience differ from before?
 
 ## Effort spent
-
-For each team member, how much time was spent in
-
-1. plenary discussions/meetings; 2 hours on 24/2, 
-
-2. discussions within parts of the group;
-
-3. reading documentation;
-
-4. configuration and setup;
-
-5. analyzing code/output;
-
-6. writing documentation;
-
-7. writing code;
-
-8. running code?
+|topic                | Carl | Klara | Jacob | Phoebe | Samuel |
+|---------------------|------|-------|-------|--------|--------|
+|discussions/meetings |   3  |   3   |   3   |    3   |   3    |
+|reading documentation|      |       |       |        |        |
+|configuration/setup  |      |       |       |        |        | 
+|analyzing code/output|      |       |       |        |        |
+|writing documentation|      |       |       |        |        |
+|writing code         |      |       |       |        |        |
+|running code         |      |       |       |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
