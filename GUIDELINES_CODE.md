@@ -1,3 +1,15 @@
+BRANCH & COMMIT GUIDELINES
+=========================
+BRANCH NAME FORMAT:
+`ios/css-keywords` and
+`ios/css-keywords-docs`
+
+COMMIT NAME FORMAT:
+`feat: ios css keywords` and
+`docs: ios css keywords docs`
+
+Of course change `ios` to your specific thing.
+
 Submitting a pull request
 =========================
 
