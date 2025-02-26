@@ -19,9 +19,9 @@ If you changed the project, how did your experience differ from before?
 |---------------------|------|-------|-------|--------|--------|
 |discussions/meetings |   3  |   3   |   3   |    3   |   3    |
 |reading documentation|      |       |       |        |        |
-|configuration/setup  |      |       |       |        |        | 
+|configuration/setup  |      |       |       |    1   |        | 
 |analyzing code/output|      |       |       |        |        |
-|writing documentation|      |       |       |        |        |
+|writing documentation|      |       |       |    1   |        |
 |writing code         |      |       |       |        |        |
 |running code         |      |       |       |        |        |
 
