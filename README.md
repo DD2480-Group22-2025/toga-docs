@@ -6,7 +6,7 @@ Name: toga
 
 URL: https://github.com/beeware/toga
 
-One or two sentences describing it
+Toga is a GUI toolkit to aid in creating applications for various platforms. 
 
 ## Onboarding experience
 
@@ -31,17 +31,26 @@ you took care of and where you spent your time, if that time exceeds
 
 ## Overview of issue(s) and work done.
 
-Title:
+Title: Support CSS font size keywords
 
-URL:
+URL: https://github.com/beeware/toga/issues/1814
 
-Summary in one or two sentences
+This issue is to make sure that the font size keywords (SMALL, MEDIUM, LARGE) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. 
 
 Scope (functionality and code affected).
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
-Optional (point 3): trace tests to requirements.
+Requirement 1: The system should allow keywords for specifying font sizes in Android
+Requirement 2: There should be testing for Android font size keywords
+Requirement 3: Allow keywords for specifying font sizes in Cocoa
+Requirement 4: There should be testing for Cocoa font size keywords
+Requirement 5: Allow keywords for specifying font sizes in GTK
+Requirement 6: There should be testing for GTK font size keywords
+Requirement 7: Allow keywords for specifying font sizes in iOS
+Requirement 8: There should be testing for IOS font size keywords
+Requirement 9: Allow keywords for specifying font sizes in Windows
+Requirement 10: There should be testing for Windows font size keywords
 
 ## Code changes
 
