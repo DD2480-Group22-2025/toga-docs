@@ -85,6 +85,7 @@ Optional (point 4): the patch is clean.
 Optional (point 5): considered for acceptance (passes all automated checks).
 
 ## Test results
+Original test results: ![image](https://github.com/user-attachments/assets/e0269ca2-33a6-4f46-b434-fb6e9d420ac0)
 
 Overall results with link to a copy or excerpt of the logs (before/after
 refactoring).
