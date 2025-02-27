@@ -25,6 +25,7 @@ If you changed the project, how did your experience differ from before?
 |writing code         |      |       |       |    3   |        |
 |running code         |      |       |       |    3   |        |
 |total                |      |       |       |        |        |
+
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
 30 minutes.
