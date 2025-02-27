@@ -86,20 +86,10 @@ Optional (point 5): considered for acceptance (passes all automated checks).
 
 ## Test results
 Original test results: ![image](https://github.com/user-attachments/assets/e0269ca2-33a6-4f46-b434-fb6e9d420ac0)
-Original Windows test results: 
-```
-=========================== short test summary info ===========================
-FAILED tests/test_fonts.py::test_font_options - assert 9 == 20
- +  where 9 = <tests_backend.widgets.label.LabelProbe object at 0x000001CD75EB62A0>.font_size
-========================= 1 failed, 9 passed in 4.94s =========================
 
-[testbed] Test suite failed!
-```
 Original coverage report: ![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
 
 Refactored test results:
-
-Refactored Windows test results:
 
 Refactored coverage report: 
 
