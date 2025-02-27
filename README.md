@@ -40,37 +40,37 @@ This issue is to make sure that the font size keywords (SMALL, MEDIUM, LARGE) ca
 Scope (functionality and code affected).
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
-| Requirement | ID | Description |
-|-------------|----|-------------|
+| Requirement | ID | Description | Linked requirement |
+|-------------|----|-------------|--------------|
 |Android|
-| 1 | R1 | The system should allow keywords for specifying font sizes in Android|
-| 2 | R2 | There should be testing for Android font size keywords MEDIUM = normal size font|
-| 3 | R3 | There should be testing for Android font size keywords SMALL = ~20\% smaller than MEDIUM|
-| 4 | R4 | There should be testing for Android font size keywords LARGE = ~20\% larger than MEDIUM|
+| 1 | R1 | The system should allow keywords for specifying font sizes in Android|  |
+| 2 | R2 | There should be testing for Android font size keywords MEDIUM = normal size font|  |
+| 3 | R3 | There should be testing for Android font size keywords SMALL = ~20\% smaller than MEDIUM|  |
+| 4 | R4 | There should be testing for Android font size keywords LARGE = ~20\% larger than MEDIUM|  |
 |Cocoa|
-| 5 | R5 | Allow keywords for specifying font sizes in Cocoa|
-| 6 | R6 | There should be testing for Cocoa font size keywords|
-| 7 | R7 | There should be testing for Cocoa font size keywords MEDIUM = normal size font|
-| 8 | R8 | There should be testing for Cocoa font size keywords SMALL = ~20\% smaller than MEDIUM|
-| 9 | R9 | There should be testing for Cocoa font size keywords LARGE = ~20\% larger than MEDIUM|
+| 5 | R5 | Allow keywords for specifying font sizes in Cocoa|  |
+| 6 | R6 | There should be testing for Cocoa font size keywords|  |
+| 7 | R7 | There should be testing for Cocoa font size keywords MEDIUM = normal size font|  |
+| 8 | R8 | There should be testing for Cocoa font size keywords SMALL = ~20\% smaller than MEDIUM|  |
+| 9 | R9 | There should be testing for Cocoa font size keywords LARGE = ~20\% larger than MEDIUM|  |
 |GTK|
-| 10 | R10 | Allow keywords for specifying font sizes in GTK|
-| 11 | R11 | There should be testing for GTK font size keywords|
-| 12 | R12 | There should be testing for GTK font size keywords MEDIUM = normal size font|
-| 13 | R13 | There should be testing for GTK font size keywords SMALL = ~20\% smaller than MEDIUM|
-| 14 | R14 | There should be testing for GTK font size keywords LARGE = ~20\% larger than MEDIUM|
+| 10 | R10 | Allow keywords for specifying font sizes in GTK|  |
+| 11 | R11 | There should be testing for GTK font size keywords|  |
+| 12 | R12 | There should be testing for GTK font size keywords MEDIUM = normal size font|  |
+| 13 | R13 | There should be testing for GTK font size keywords SMALL = ~20\% smaller than MEDIUM|  |
+| 14 | R14 | There should be testing for GTK font size keywords LARGE = ~20\% larger than MEDIUM|  |
 |iOS|
-| 15 | R15 | Allow keywords for specifying font sizes in iOS|
-| 16 | R16 | There should be testing for iOS font size keywords|
-| 17 | R17 | There should be testing for iOS font size keywords MEDIUM = normal size font|
-| 18 | R18 | There should be testing for iOS font size keywords SMALL = ~20\% smaller than MEDIUM|
-| 19 | R19 | There should be testing for iOS font size keywords LARGE = ~20\% larger than MEDIUM|
+| 15 | R15 | Allow keywords for specifying font sizes in iOS|  |
+| 16 | R16 | There should be testing for iOS font size keywords|  |
+| 17 | R17 | There should be testing for iOS font size keywords MEDIUM = normal size font|  |
+| 18 | R18 | There should be testing for iOS font size keywords SMALL = ~20\% smaller than MEDIUM|  |
+| 19 | R19 | There should be testing for iOS font size keywords LARGE = ~20\% larger than MEDIUM|  |
 |Windows|
-| 20 | R20 | Allow keywords for specifying font sizes in Windows|
-| 21 | R21 | There should be testing for Windows font size keywords|
-| 22 | R22 | There should be testing for Windows font size keywords MEDIUM = normal size font|
-| 23 | R23 | There should be testing for Windows font size keywords SMALL = ~20\% smaller than MEDIUM|
-| 24 | R24 | There should be testing for Windows font size keywords LARGE = ~20\% larger than MEDIUM|
+| 20 | R20 | Allow keywords for specifying font sizes in Windows| [R20 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/src/toga_winforms/fonts.py) |
+| 21 | R21 | There should be testing for Windows font size keywords| [R21 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
+| 22 | R22 | There should be testing for Windows font size keywords MEDIUM = normal size font| [R22 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
+| 23 | R23 | There should be testing for Windows font size keywords SMALL = ~20\% smaller than MEDIUM| [R23 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
+| 24 | R24 | There should be testing for Windows font size keywords LARGE = ~20\% larger than MEDIUM| [R24 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
 
 ## Code changes
 
