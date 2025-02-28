@@ -17,13 +17,13 @@ If you changed the project, how did your experience differ from before?
 ## Effort spent
 |topic                | Carl | Klara | Jacob | Phoebe | Samuel |
 |---------------------|------|-------|-------|--------|--------|
-|discussions/meetings |   3  |   3   |   3   |    3   |   3    |
-|reading documentation|      |       |       |    1   |        |
-|configuration/setup  |      |       |       |    1   |        | 
-|analyzing code/output|      |       |       |    2   |        |
-|writing documentation|      |       |       |    1   |        |
-|writing code         |      |       |       |    3   |        |
-|running code         |      |       |       |    3   |        |
+|discussions/meetings |   3  |   3   |   3   |    3   |   4    |
+|reading documentation|      |       |       |    1   |   2    |
+|configuration/setup  |      |       |       |    1   |   2    | 
+|analyzing code/output|      |       |       |    2   |   3    |
+|writing documentation|      |       |       |    1   |   1    |
+|writing code         |      |       |       |    3   |   5    |
+|running code         |      |       |       |    3   |   4    |
 |total                |      |       |       |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
@@ -61,11 +61,11 @@ Scope (functionality and code affected).
 | 13 | R13 | There should be testing for GTK font size keywords SMALL = ~20\% smaller than MEDIUM|  |
 | 14 | R14 | There should be testing for GTK font size keywords LARGE = ~20\% larger than MEDIUM|  |
 |iOS|
-| 15 | R15 | Allow keywords for specifying font sizes in iOS|  |
-| 16 | R16 | There should be testing for iOS font size keywords|  |
-| 17 | R17 | There should be testing for iOS font size keywords MEDIUM = normal size font|  |
-| 18 | R18 | There should be testing for iOS font size keywords SMALL = ~20\% smaller than MEDIUM|  |
-| 19 | R19 | There should be testing for iOS font size keywords LARGE = ~20\% larger than MEDIUM|  |
+| 15 | R15 | Allow keywords for specifying font sizes in iOS| [R15 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/src/toga_iOS/fonts.py) |
+| 16 | R16 | There should be testing for iOS font size keywords| [R16 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py) |
+| 17 | R17 | There should be testing for iOS font size keywords MEDIUM = normal size font| [R17 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)  |
+| 18 | R18 | There should be testing for iOS font size keywords SMALL = ~20\% smaller than MEDIUM| [R18 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)  |
+| 19 | R19 | There should be testing for iOS font size keywords LARGE = ~20\% larger than MEDIUM| [R19 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)  |
 |Windows|
 | 20 | R20 | Allow keywords for specifying font sizes in Windows| [R20 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/src/toga_winforms/fonts.py) |
 | 21 | R21 | There should be testing for Windows font size keywords| [R21 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
