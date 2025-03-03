@@ -17,7 +17,7 @@ If you changed the project, how did your experience differ from before?
 ## Effort spent
 |topic                | Carl | Klara | Jacob | Phoebe | Samuel |
 |---------------------|------|-------|-------|--------|--------|
-|discussions/meetings |   3  |   3   |   3   |    3   |   4    |
+|discussions/meetings |   5  |   5   |   5   |    5   |   4    |
 |reading documentation|      |       |       |    1   |   2    |
 |configuration/setup  |      |       |       |    1   |   2    | 
 |analyzing code/output|      |       |       |    2   |   3    |
@@ -87,20 +87,27 @@ Optional (point 5): considered for acceptance (passes all automated checks).
 
 ## Test results
 
-The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests written. By running testing through `tox -m test` it runs both the testing suite and the coverage results. The original results are pictured below. 
+The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. The original results are pictured below. 
 
-Original test results: ![image](https://github.com/user-attachments/assets/e0269ca2-33a6-4f46-b434-fb6e9d420ac0)
+Original test results: 
+![image](https://github.com/user-attachments/assets/e0269ca2-33a6-4f46-b434-fb6e9d420ac0)
+![image](https://github.com/user-attachments/assets/76511778-a3e4-49cc-97bc-0824a5722a72)
 
-Original coverage report: ![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
+Original coverage reports: 
+![image](https://github.com/user-attachments/assets/7ae4055f-5e73-431a-8807-e3ae8870a7d9)
+![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
 
 During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. 
 
 After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below. 
 
-Refactored test results:
+Refactored core test results:
+
+Refactored travertino test results: 
 
 Refactored coverage report: 
 
+We implemented changes in multiple locations of the testbed to ensure that both our enhancements were correct, and so that our coverage remained at 100%. Within each operating system, we added tests to check whether or not the font size was an integer or a string from the `ABSOLUTE_FONT_SIZES` or from the `RELATIVE_FONT_SIZES` and if the size matched what the expected font size should be. Then in the core testbed, we updated the testing for fonts in the `test_css.py` file to ensure that each size option (`int`, `ABSOLUTE_FONT_SIZES`, `RELATIVE_FONT_SIZE`, `SYSTEM_DEFAULT_FONT_SIZE`) was tested for each operating system. These changes allowed for us to ensure that our implementations were correct and provided full coverage. 
 
 ## UML class diagram and its description
 
