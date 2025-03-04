@@ -18,72 +18,90 @@ If you changed the project, how did your experience differ from before?
 |topic                | Carl | Klara | Jacob | Phoebe | Samuel |
 |---------------------|------|-------|-------|--------|--------|
 |discussions/meetings |   5  |   5   |   5   |    5   |   4    |
-|reading documentation|      |       |       |    1   |   2    |
-|configuration/setup  |      |       |       |    1   |   2    | 
+|reading documentation|      |       |       |    2   |   2    |
+|configuration/setup  |      |       |       |    2   |   2    | 
 |analyzing code/output|      |       |       |    2   |   3    |
-|writing documentation|      |       |       |    1   |   1    |
+|writing documentation|      |       |       |    2   |   1    |
 |writing code         |      |       |       |    3   |   5    |
-|running code         |      |       |       |    3   |   4    |
+|running code         |      |       |       |    4   |   4    |
 |total                |      |       |       |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
 30 minutes.
 
-## Overview of issue(s) and work done.
+## Overview of issue and work done.
 
 Title: Support CSS font size keywords
 
 URL: https://github.com/beeware/toga/issues/1814
 
-This issue is to make sure that the font size keywords (SMALL, MEDIUM, LARGE) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. 
-
-Scope (functionality and code affected).
+This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place. 
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
-| Requirement | ID | Description | Linked requirement |
+| Requirements | ID | Description | Linked requirement |
 |-------------|----|-------------|--------------|
-|Android|
-| 1 | R1 | The system should allow keywords for specifying font sizes in Android|  |
-| 2 | R2 | There should be testing for Android font size keywords MEDIUM = normal size font|  |
-| 3 | R3 | There should be testing for Android font size keywords SMALL = ~20\% smaller than MEDIUM|  |
-| 4 | R4 | There should be testing for Android font size keywords LARGE = ~20\% larger than MEDIUM|  |
-|Cocoa|
-| 5 | R5 | Allow keywords for specifying font sizes in Cocoa|  |
-| 6 | R6 | There should be testing for Cocoa font size keywords|  |
-| 7 | R7 | There should be testing for Cocoa font size keywords MEDIUM = normal size font|  |
-| 8 | R8 | There should be testing for Cocoa font size keywords SMALL = ~20\% smaller than MEDIUM|  |
-| 9 | R9 | There should be testing for Cocoa font size keywords LARGE = ~20\% larger than MEDIUM|  |
-|GTK|
-| 10 | R10 | Allow keywords for specifying font sizes in GTK|  |
-| 11 | R11 | There should be testing for GTK font size keywords|  |
-| 12 | R12 | There should be testing for GTK font size keywords MEDIUM = normal size font|  |
-| 13 | R13 | There should be testing for GTK font size keywords SMALL = ~20\% smaller than MEDIUM|  |
-| 14 | R14 | There should be testing for GTK font size keywords LARGE = ~20\% larger than MEDIUM|  |
-|iOS|
-| 15 | R15 | Allow keywords for specifying font sizes in iOS| [R15 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/src/toga_iOS/fonts.py) |
-| 16 | R16 | There should be testing for iOS font size keywords| [R16 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py) |
-| 17 | R17 | There should be testing for iOS font size keywords MEDIUM = normal size font| [R17 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)  |
-| 18 | R18 | There should be testing for iOS font size keywords SMALL = ~20\% smaller than MEDIUM| [R18 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)  |
-| 19 | R19 | There should be testing for iOS font size keywords LARGE = ~20\% larger than MEDIUM| [R19 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)  |
-|Windows|
-| 20 | R20 | Allow keywords for specifying font sizes in Windows| [R20 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/src/toga_winforms/fonts.py) |
-| 21 | R21 | There should be testing for Windows font size keywords| [R21 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
-| 22 | R22 | There should be testing for Windows font size keywords MEDIUM = normal size font| [R22 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
-| 23 | R23 | There should be testing for Windows font size keywords SMALL = ~20\% smaller than MEDIUM| [R23 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
-| 24 | R24 | There should be testing for Windows font size keywords LARGE = ~20\% larger than MEDIUM| [R24 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
+|Android Requirements|
+| 1 | R1 | The system should allow keywords for specifying font sizes in Android. Both relative and absolute CSS keywords are represented and supported. | [R1 file](https://github.com/DD2480-Group22-2025/toga/blob/main/android/src/toga_android/fonts.py) |
+| 2 | R2 | There should be testing for Android font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R2 test](https://github.com/DD2480-Group22-2025/toga/blob/main/android/tests_backend/fonts.py) |
+|Cocoa Requirements|
+| 3 | R3 | The system should allow keywords for specifying font sizes in Cocoa. Both relative and absolute CSS keywords are represented and supported. | [R3 file](https://github.com/DD2480-Group22-2025/toga/blob/main/cocoa/src/toga_cocoa/fonts.py) |
+| 4 | R4 | There should be testing for Cocoa font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R4 test](https://github.com/DD2480-Group22-2025/toga/blob/main/cocoa/tests_backend/fonts.py) |
+|GTK Requirements|
+| 5 | R5 | The system should allow keywords for specifying font sizes in GTK. Both relative and absolute CSS keywords are represented and supported. | [R5 file](https://github.com/DD2480-Group22-2025/toga/blob/main/gtk/src/toga_gtk/fonts.py) |
+| 6 | R6 | There should be testing for GTK font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R6 test](https://github.com/DD2480-Group22-2025/toga/blob/main/gtk/tests_backend/fonts.py) |
+|iOS Requirements|
+| 7 | R7 | The system should allow keywords for specifying font sizes in iOS. Both relative and absolute CSS keywords are represented and supported. | [R7 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/src/toga_iOS/fonts.py) |
+| 8 | R8 | There should be testing for iOS font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R8 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py) |
+| Windows Requirements |
+| 9 | R9 | Allow keywords for specifying font sizes in Windows| [R9 file](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/src/toga_winforms/fonts.py) |
+| 10 | R10 | There should be testing for Windows font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R10 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
+| General System Requirements |
+| 11 | R11 | The travertino libary should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`. | [R11 constants](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/constants.py), [R11 file](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/fonts.py), [R11 test](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/tests/test_fonts.py)|
+| 12 | R12 | The CoreAPI should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`. | [R12 file](https://github.com/DD2480-Group22-2025/toga/blob/main/core/src/toga/style/pack.py), [R12 test](https://github.com/DD2480-Group22-2025/toga/blob/main/core/tests/style/pack/test_css.py) |
 
-## Code changes
+## Changes Made
+`core/src/toga/stype/pack.py`
+![image](https://github.com/user-attachments/assets/e4901d3f-a63a-4088-9416-e9efb940e939)
 
-### Patch
+`core/src/toga/fonts.py`
+![image](https://github.com/user-attachments/assets/130cc4ce-a766-4327-867d-ed298da84b35)
 
-(copy your changes or the add git command to show them)
+`core/tests/test_fonts.py`
+![image](https://github.com/user-attachments/assets/60ef4264-8a56-42dd-be5b-ea742e837ccb)
 
-git diff ...
+`core/tests/style/pack/test_css.py`
+![image](https://github.com/user-attachments/assets/aade6af0-a9e9-45fc-b2e8-c9d3f055f633)
 
-Optional (point 4): the patch is clean.
+`testbed/tests/test_fonts.py`
+![image](https://github.com/user-attachments/assets/8ef8d980-1aec-47fe-935e-88258fd5e4f8)
 
-Optional (point 5): considered for acceptance (passes all automated checks).
+`travertino/src/travertino/constants.py`
+![image](https://github.com/user-attachments/assets/3e15f887-f458-4a74-9ee4-f94b51fa0df2)
+
+`travertino/src/travertino/fonts.py`
+![image](https://github.com/user-attachments/assets/fe057516-eece-4de8-b8b1-6fb026e34ee6)
+
+`travertino/tests/test_fonts.py`
+![image](https://github.com/user-attachments/assets/a4a6eb02-bc00-4702-819d-61f21e117b0a)
+![image](https://github.com/user-attachments/assets/11016a16-dc1a-427b-8910-1aafc604c0c3)
+![image](https://github.com/user-attachments/assets/f973b767-f5fe-46f9-99d0-a1e6264b4ed6)
+
+`android`
+
+Cocoa changes:
+![image](https://github.com/user-attachments/assets/cf991ea5-93f7-40bd-92cd-04026bda6894)
+![image](https://github.com/user-attachments/assets/202bbb7a-1785-408d-bbbc-88378bd6ccc5)
+
+`gtk`
+
+`ios`
+![image](https://github.com/user-attachments/assets/6e63a18a-4731-4264-bad5-4be8cc8501bd)
+![image](https://github.com/user-attachments/assets/8afb49f5-8a1d-4326-bb45-74daff276752)
+
+`windows`
+![image](https://github.com/user-attachments/assets/35575557-c4ee-43e0-babe-aff9d6501cd1)
+![image](https://github.com/user-attachments/assets/1c12e0e4-4094-4376-bf7f-3f61cba649f4)
 
 ## Test results
 
