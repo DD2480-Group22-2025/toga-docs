@@ -1,6 +1,42 @@
 # UML class diagram and its description
 ## UML Diagram for core tests
+
 ## UML Diagram for Travertino Changes
+### Travertino fonts before
+```mermaid
+classDiagram
+    class Font {
+      +family
+      +size
+      +style
+      +variant
+      +weight 
+    }
+```
+
+### Travertino fonts after
+```mermaid
+classDiagram
+    class Font {
+      +family
+      +size
+      +style
+      +variant
+      +weight 
+    }
+    
+    class FontSizeConstants {
+      <<constant>>
+      +ABSOLUTE_FONT_SIZES: Dict
+      +FONT_SIZE_SCALE: Dict
+      +RELATIVE_FONT_SIZES: Dict
+      +RELATIVE_FONT_SIZE_SCALE: Dict
+    } 
+
+    Font ..> FontSizeConstants : uses
+```
+
+
 ## UML Diagram for Backend Fonts Modules
 ### Backend fonts Before
 ```mermaid
