@@ -74,6 +74,8 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 
 ## Changes made
 
+We made changes to 20 files in total, spanning over the CoreAPI, Travertino library, Testbed suite, and the 5 different backends each of us refactored. Expand the dropdowns below to see the side-by-side changes to each of the files. 
+
 <details> 
 <summary>CoreAPI</summary>
 
@@ -126,6 +128,9 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 ![image](https://github.com/user-attachments/assets/202bbb7a-1785-408d-bbbc-88378bd6ccc5)
 
 `gtk`
+![image](https://github.com/user-attachments/assets/105d67ca-7852-4ba8-8125-ee69095095a0)
+![image](https://github.com/user-attachments/assets/bb279334-8266-4aa4-8a7d-4d0b381c09ec)
+![image](https://github.com/user-attachments/assets/bfc1067f-800e-4837-a09a-4a02b53aa0a7)
 
 `ios`
 ![image](https://github.com/user-attachments/assets/6e63a18a-4731-4264-bad5-4be8cc8501bd)
