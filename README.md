@@ -36,7 +36,7 @@ Title: Support CSS font size keywords
 
 URL: https://github.com/beeware/toga/issues/1814
 
-This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place. 
+This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, iOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place. 
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 | Requirements | ID | Description | Linked requirement |
@@ -89,7 +89,8 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 
 `android`
 
-Cocoa changes:
+
+`cocoa`
 ![image](https://github.com/user-attachments/assets/cf991ea5-93f7-40bd-92cd-04026bda6894)
 ![image](https://github.com/user-attachments/assets/202bbb7a-1785-408d-bbbc-88378bd6ccc5)
 
@@ -115,7 +116,7 @@ Original coverage reports:
 ![image](https://github.com/user-attachments/assets/7ae4055f-5e73-431a-8807-e3ae8870a7d9)
 ![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
 
-During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. 
+During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
 After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below. 
 
@@ -127,18 +128,12 @@ We implemented changes in multiple locations of the testbed to ensure that both 
 
 ## UML class diagram and its description
 
-### Key changes/classes affected
 
-Optional (point 1): Architectural overview.
+## Way of working
+We begain this issue and we originally thought that the changes would not take as much time. Our plan was to finish the first issue in the first week and take a second issue for the second week. However, due to the complexity of the different requirements and testing environments for each of our systems, we continuously ran into problems regarding running the tests and making sure we had compatible systems with the operating systems we were trying to implement. 
 
-Optional (point 2): relation to design pattern(s).
+Our team is currently in the **Working Well**. We have a good flow together and continously keep in contact and stay on top of our commitments. This project, we really worked together and communicated our needs so that we were able to complete the project and help each other if needed. We stuck to our guidelines that we created in the beginning. After this week, we will move to the **Retired** since this is the last project for this course. This means that our responsibilities are done and we will soon move on to new projects with different groups. We have learned a lot about working in a team and have found a system that works well for us. 
 
-## Overall experience
+We can recognize the benefits and limitations of our work in the context of modern software engineering practices. This approach, which was guided by the SEMAT kernel, helped us maintain industry standards. We found that good documentation was really important for starting to work on already established projects. In our project for P3, the documentation helped our onboarding experience and we were able to quickly set up and move on to our analysis. In this project, while the documentation was really good and clearly stated, it was difficult to find the exact documentation that we needed to read since there were many for different versions that had key differences which were essential for running the tests and the program. Another thing we learned from this work was the importance of good testing. We found that in P3 the lack of testing really made it difficult to analyze the project. In this project, we had really great testing which also came with 100\% code coverage which made it easy to expand on their tests and to ensure that our code implementations and refactorings were correct. 
 
-What are your main take-aways from this project? What did you learn?
 
-How did you grow as a team, using the Essence standard to evaluate yourself?
-
-Optional (point 6): How would you put your work in context with best software engineering practice?
-
-Optional (point 7): Is there something special you want to mention here?
