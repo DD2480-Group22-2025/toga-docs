@@ -2,7 +2,7 @@
 
 ## Project
 
-Name: toga
+Name: Toga
 
 URL: https://github.com/beeware/toga
 
@@ -143,7 +143,7 @@ We made changes to 20 files in total, spanning over the CoreAPI, Travertino libr
 
 ## Test results
 
-The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. The original results are pictured below.
+The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests for the CoreAPI and 645 tests for Travertino written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. We also ran the CI pipeline each time we made a pull request. The original CI pipeline passed. The original results are pictured below.
 
 <details> 
 <summary>Original Results</summary>
@@ -164,16 +164,22 @@ Original CI pipeline results:
 
 During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
-After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below.
+After refactoring, we were able to increase the number of tests from 2743 to 2757 (+14) and 654 to 665 (+11) for the Core and Travertino test suites! We also ensured that the coverage stayed at 100% and increased the statements and branches. Below we have the results of our testing as well as the final CI pipeline. 
 
 <details> 
 <summary>Refactored Results</summary>
 
 Refactored test results:
+![image](https://github.com/user-attachments/assets/b34b30ec-3c7d-43ac-800b-ad2571bcb5dd)
+![image](https://github.com/user-attachments/assets/48946e21-dc83-479e-acdb-2f30463d859f)
 
 Refactored coverage report:
+![image](https://github.com/user-attachments/assets/13c953d9-6cb0-416d-826d-b3793f4e38d2)
+![image](https://github.com/user-attachments/assets/b1ebee61-ea55-4148-8d45-7404c53eef5f)
+
 
 Refactored CI results:
+
 
 </details>
 
@@ -191,7 +197,7 @@ We implemented changes in multiple locations of the testbed to ensure that both 
 
 ![core fonts after](UML/core_fonts_after.png)
 
-In the updated core Font file (core/src/toga/fonts.py), the str method now accepts font sizes as either a number or a CSS keyword. If the size is a CSS keyword (found in ABSOLUTE_FONT_SIZES or RELATIVE_FONT_SIZES), it outputs that keyword directly; otherwise, it appends "pt" to numeric values. Tests in core/tests/test_fonts.py verify that the string representation is correct for both numeric sizes and keywords (e.g., "small", "large").
+In the updated core Font file (`core/src/toga/fonts.py`), the str method now accepts font sizes as either a number or a CSS keyword. If the size is a CSS keyword (found in `ABSOLUTE_FONT_SIZES` or `RELATIVE_FONT_SIZES`), it outputs that keyword directly; otherwise, it appends "pt" to numeric values. Tests in `core/tests/test_fonts.py` verify that the string representation is correct for both numeric sizes and keywords (e.g., `small`, `large`).
 
 **Core pack before**
 
@@ -213,9 +219,9 @@ In the updated core Font file (core/src/toga/fonts.py), the str method now accep
 
 ![travertino fonts after](UML/travertino_fonts_after.png)
 
-Travertino is a library for "describing constants and a base box model that can be used to define layout algorithms". In it constants have been defined for scaling font sizes based on system default sizes. The library defines Font clases which are later used in the Togo core to define fonts. The font class has been altered to recognize and handle RELATIVE and ABSOLUTE font sizes, otherwise it remains unchanged.
+Travertino is a library for "describing constants and a base box model that can be used to define layout algorithms". In it, constants have been defined for scaling font sizes based on system default sizes. The library defines Font clases which are later used in the Togo core to define fonts. The font class has been altered to recognize and handle `RELATIVE` and `ABSOLUTE` font sizes, otherwise, it remains unchanged.
 
-The ABSOLUTE_FONT_SIZES is defined as a dictionary of different available size modifiers {XX_SMALL, X_SMALL, SMALL, MEDIUM, LARGE, X_LARGE, XX_LARGE}, where MEDIUM is the same size as system default, while each step up and down either increases or decreases the size by 20 %. RELATIVE_FONT_SIZES is a dictionary containing size modifiers {SMALLER, LARGER}, which indicate that a font is 20 % smaller or larger than that of its parent. 
+The `ABSOLUTE_FONT_SIZES` is defined as a dictionary of different available size modifiers {`XX_SMALL`, `X_SMALL`, `SMALL`, `MEDIUM`, `LARGE`, `X_LARGE`, `XX_LARGE`}, where `MEDIUM` is the same size as the system default, while each step up and down either increase or decreases the size by 20 %. `RELATIVE_FONT_SIZES` is a dictionary containing size modifiers {`SMALLER`, `LARGER`}, which indicate that a font is 20 % smaller or larger than that of its parent. 
 </details>
 
 <details> 
@@ -229,9 +235,9 @@ The ABSOLUTE_FONT_SIZES is defined as a dictionary of different available size m
 
 ![backend fonts after](UML/backend_fonts_after.png)
 
-The original font implementation only supported numeric font sizes. It computed the final size by checking if the size was the system default or by converting a numeric CSS value using a fixed multiplier. This is somewhat appliable for all font clases, therefore we do not make one for each. 
+The original font implementation only supported numeric font sizes. It computed the final size by checking if the size was the system default or by converting a numeric CSS value using a fixed multiplier. This is somewhat applicable for all font classes, therefore we do not make one for each. 
 
-The refactored version now supports CSS font size keywords (like “small”, “medium”, “large”). The interface was extended to accept string values, and lookup tables (ABSOLUTE_FONT_SIZES, FONT_SIZE_SCALE, RELATIVE_FONT_SIZES, and RELATIVE_FONT_SIZE_SCALE) from Travertino are used to convert these keywords into numeric sizes. The updated UML diagram shows that the Font class now leverages these constants to dynamically compute the font size—while still handling numeric values as before—resulting in more consistent font sizing across platforms while following each platform’s UI guidelines.
+The refactored version now supports CSS font-size keywords (like `small`, `medium`, and `large`). The interface was extended to accept string values, and lookup tables (`ABSOLUTE_FONT_SIZES`, `FONT_SIZE_SCALE`, `RELATIVE_FONT_SIZES`, and `RELATIVE_FONT_SIZE_SCALE`) from Travertino are used to convert these keywords into numeric sizes. The updated UML diagram shows that the Font class now leverages these constants to dynamically compute the font size, while still handling numeric values as before, resulting in more consistent font sizing across platforms while following each platform’s UI guidelines.
 
 </details>
 
