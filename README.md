@@ -31,13 +31,13 @@ One thing that took us a while to figure out, though, was that, if we made chang
 | topic                 | Carl | Klara | Jacob | Phoebe | Samuel |
 | --------------------- | ---- | ----- | ----- | ------ | ------ |
 | discussions/meetings  | 5    | 5     | 5     | 5      | 4      |
-| reading documentation |      |       |       | 2      | 2      |
-| configuration/setup   |      |       |       | 2      | 2      |
-| analyzing code/output |      |       |       | 2      | 3      |
-| writing documentation |      |       |       | 3      | 1      |
-| writing code          |      |       |       | 4      | 5      |
-| running code          |      |       |       | 4      | 4      |
-| total                 |      |       |       | 22     |        |
+| reading documentation |      | 2     |       | 2      | 2      |
+| configuration/setup   |      | 5     |       | 2      | 2      |
+| analyzing code/output |      | 3     |       | 2      | 3      |
+| writing documentation |      | 4     |       | 3      | 1      |
+| writing code          |      | 2     |       | 4      | 5      |
+| running code          |      | 4     |       | 4      | 4      |
+| total                 |      | 25    |       | 22     |        |
 
 
 ## Overview of issue and work done.
