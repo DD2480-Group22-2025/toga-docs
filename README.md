@@ -6,25 +6,38 @@ Name: toga
 
 URL: https://github.com/beeware/toga
 
-Toga is a GUI toolkit to aid in creating applications for various platforms. 
+Toga is a GUI toolkit to aid in creating applications for various platforms.
 
 ## Onboarding experience
 
-Did you choose a new project or continue on the previous one?
+### Did you choose a new project or continue on the previous one?
 
-If you changed the project, how did your experience differ from before?
+We switched to a new project, as the previous one (discord.js) wasn't as fitting for the assignment - and comes with higher stakes & complexity. Toga ([beeware/toga](https://github.com/beeware/toga)) had a comprehensive test suite which was easy to set up, and the project structure was very well documented. The project as a whole seems very inviting to contribute to, with documentation on how to get started with the process of contributing. There are also many open issues that are well suited for newcomers to contribute to, some with a "good first issue" label. We looked through these issues and found one that we thought was interesting and suitably scoped for our assignment. It was a relatively big issue, but it was conveniently split into five smaller tasks which made it easier to handle for our five-person group. Toga is a Python library that is used to create GUI applications for various platforms, and we chose to work on the issue of supporting CSS font size keywords - this meant that each person could work on one of the five backends (Android, iOS, Windows, Cocoa, GTK).
+
+### If you changed the project, how did your experience differ from before?
+
+Overall, it was a better experience working on this project compared to discord.js, mostly because of the comprehensive test suite, the well-documented contribution guide, and the contribution-focused nature of the project. It was also easier to comprehensively test our changes as the project is offline and not reliant on external APIs.
+
+#### Work distribution & testing
+
+Within the team, we have a perfect distribution of machines for the backends - 2 Macs (iOS and Cocoa), 2 Windows (Android and Winforms), and 1 Linux (GTK). This made it easy to test our changes on all platforms. Toga has a collection of different tests for various parts of the project, including the core, travertino, and tests for each backend - for every change we made, we could run the tests to ensure that we didn't break anything. Of course, every person only tested their own backend, but we made sure the tests passed for each backend before submitting our PRs into our development repo, which has been submitted as a PR to the main repo. Since Toga also has a CI pipeline, we made sure that these passed as well, which gave us confidence that our changes were correct.
+
+#### Cache issues
+
+One thing that took us a while to figure out, though, was that, if we made changes to some part of the codebase, we had to remove the build cache for that part of the codebase before we could test it. Otherwise, the tests would still use the old code. This was a bit annoying, and cost us some time, but once we figured it out, it was a non-issue.
 
 ## Effort spent
-|topic                | Carl | Klara | Jacob | Phoebe | Samuel |
-|---------------------|------|-------|-------|--------|--------|
-|discussions/meetings |   5  |   5   |   5   |    5   |   4    |
-|reading documentation|      |       |       |    2   |   2    |
-|configuration/setup  |      |       |       |    2   |   2    | 
-|analyzing code/output|      |       |       |    2   |   3    |
-|writing documentation|      |       |       |    2   |   1    |
-|writing code         |      |       |       |    3   |   5    |
-|running code         |      |       |       |    4   |   4    |
-|total                |      |       |       |        |        |
+
+| topic                 | Carl | Klara | Jacob | Phoebe | Samuel |
+| --------------------- | ---- | ----- | ----- | ------ | ------ |
+| discussions/meetings  | 5    | 5     | 5     | 5      | 4      |
+| reading documentation |      |       |       | 2      | 2      |
+| configuration/setup   |      |       |       | 2      | 2      |
+| analyzing code/output |      |       |       | 2      | 3      |
+| writing documentation |      |       |       | 2      | 1      |
+| writing code          |      |       |       | 3      | 5      |
+| running code          |      |       |       | 4      | 4      |
+| total                 |      |       |       |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
@@ -36,29 +49,31 @@ Title: Support CSS font size keywords
 
 URL: https://github.com/beeware/toga/issues/1814
 
-This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, iOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place. 
+This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place.
+
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
-| Requirements | ID | Description | Linked requirement |
-|-------------|----|-------------|--------------|
-|Android Requirements|
-| 1 | R1 | The system should allow keywords for specifying font sizes in Android. Both relative and absolute CSS keywords are represented and supported. | [R1 file](https://github.com/DD2480-Group22-2025/toga/blob/main/android/src/toga_android/fonts.py) |
-| 2 | R2 | There should be testing for Android font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R2 test](https://github.com/DD2480-Group22-2025/toga/blob/main/android/tests_backend/fonts.py) |
-|Cocoa Requirements|
-| 3 | R3 | The system should allow keywords for specifying font sizes in Cocoa. Both relative and absolute CSS keywords are represented and supported. | [R3 file](https://github.com/DD2480-Group22-2025/toga/blob/main/cocoa/src/toga_cocoa/fonts.py) |
-| 4 | R4 | There should be testing for Cocoa font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R4 test](https://github.com/DD2480-Group22-2025/toga/blob/main/cocoa/tests_backend/fonts.py) |
-|GTK Requirements|
-| 5 | R5 | The system should allow keywords for specifying font sizes in GTK. Both relative and absolute CSS keywords are represented and supported. | [R5 file](https://github.com/DD2480-Group22-2025/toga/blob/main/gtk/src/toga_gtk/fonts.py) |
-| 6 | R6 | There should be testing for GTK font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R6 test](https://github.com/DD2480-Group22-2025/toga/blob/main/gtk/tests_backend/fonts.py) |
-|iOS Requirements|
-| 7 | R7 | The system should allow keywords for specifying font sizes in iOS. Both relative and absolute CSS keywords are represented and supported. | [R7 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/src/toga_iOS/fonts.py) |
-| 8 | R8 | There should be testing for iOS font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R8 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py) |
-| Windows Requirements |
-| 9 | R9 | Allow keywords for specifying font sizes in Windows| [R9 file](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/src/toga_winforms/fonts.py) |
-| 10 | R10 | There should be testing for Windows font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step. | [R10 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py) |
+
+| Requirements                | ID  | Description                                                                                                                                                              | Linked requirement                                                                                                                                                                                                                                                                                                    |
+| --------------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android Requirements        |
+| 1                           | R1  | The system should allow keywords for specifying font sizes in Android. Both relative and absolute CSS keywords are represented and supported.                            | [R1 file](https://github.com/DD2480-Group22-2025/toga/blob/main/android/src/toga_android/fonts.py)                                                                                                                                                                                                                    |
+| 2                           | R2  | There should be testing for Android font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step.                | [R2 test](https://github.com/DD2480-Group22-2025/toga/blob/main/android/tests_backend/fonts.py)                                                                                                                                                                                                                       |
+| Cocoa Requirements          |
+| 3                           | R3  | The system should allow keywords for specifying font sizes in Cocoa. Both relative and absolute CSS keywords are represented and supported.                              | [R3 file](https://github.com/DD2480-Group22-2025/toga/blob/main/cocoa/src/toga_cocoa/fonts.py)                                                                                                                                                                                                                        |
+| 4                           | R4  | There should be testing for Cocoa font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step.                  | [R4 test](https://github.com/DD2480-Group22-2025/toga/blob/main/cocoa/tests_backend/fonts.py)                                                                                                                                                                                                                         |
+| GTK Requirements            |
+| 5                           | R5  | The system should allow keywords for specifying font sizes in GTK. Both relative and absolute CSS keywords are represented and supported.                                | [R5 file](https://github.com/DD2480-Group22-2025/toga/blob/main/gtk/src/toga_gtk/fonts.py)                                                                                                                                                                                                                            |
+| 6                           | R6  | There should be testing for GTK font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step.                    | [R6 test](https://github.com/DD2480-Group22-2025/toga/blob/main/gtk/tests_backend/fonts.py)                                                                                                                                                                                                                           |
+| iOS Requirements            |
+| 7                           | R7  | The system should allow keywords for specifying font sizes in iOS. Both relative and absolute CSS keywords are represented and supported.                                | [R7 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/src/toga_iOS/fonts.py)                                                                                                                                                                                                                            |
+| 8                           | R8  | There should be testing for iOS font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step.                    | [R8 test](https://github.com/DD2480-Group22-2025/toga/blob/main/iOS/tests_backend/fonts.py)                                                                                                                                                                                                                           |
+| Windows Requirements        |
+| 9                           | R9  | Allow keywords for specifying font sizes in Windows                                                                                                                      | [R9 file](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/src/toga_winforms/fonts.py)                                                                                                                                                                                                                  |
+| 10                          | R10 | There should be testing for Windows font size keywords. Ensure that the absolute keywords and relative keywords change font-size by ~20\% with each step.                | [R10 test](https://github.com/DD2480-Group22-2025/toga/blob/main/winforms/tests_backend/fonts.py)                                                                                                                                                                                                                     |
 | General System Requirements |
-| 11 | R11 | The travertino libary should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`. | [R11 constants](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/constants.py), [R11 file](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/fonts.py), [R11 test](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/tests/test_fonts.py)|
-| 12 | R12 | The CoreAPI should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`. | [R12 file](https://github.com/DD2480-Group22-2025/toga/blob/main/core/src/toga/style/pack.py), [R12 test](https://github.com/DD2480-Group22-2025/toga/blob/main/core/tests/style/pack/test_css.py) |
+| 11                          | R11 | The travertino libary should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`. | [R11 constants](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/constants.py), [R11 file](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/fonts.py), [R11 test](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/tests/test_fonts.py) |
+| 12                          | R12 | The CoreAPI should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`.           | [R12 file](https://github.com/DD2480-Group22-2025/toga/blob/main/core/src/toga/style/pack.py), [R12 test](https://github.com/DD2480-Group22-2025/toga/blob/main/core/tests/style/pack/test_css.py)                                                                                                                    |
 
 ## Changes Made
 
@@ -114,27 +129,26 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 
 ## Test results
 
-The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. The original results are pictured below. 
+The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. The original results are pictured below.
 
-Original test results: 
+Original test results:
 ![image](https://github.com/user-attachments/assets/e0269ca2-33a6-4f46-b434-fb6e9d420ac0)
 ![image](https://github.com/user-attachments/assets/76511778-a3e4-49cc-97bc-0824a5722a72)
 
-Original coverage reports: 
+Original coverage reports:
 ![image](https://github.com/user-attachments/assets/7ae4055f-5e73-431a-8807-e3ae8870a7d9)
 ![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
 
 Original CI pipeline results:
 ![image](https://github.com/user-attachments/assets/7a782076-4acb-4362-a62b-d643da7be28e)
 
-
 During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
-After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below. 
+After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below.
 
 Refactored test results:
 
-Refactored coverage report: 
+Refactored coverage report:
 
 Refactored CI results:
 
