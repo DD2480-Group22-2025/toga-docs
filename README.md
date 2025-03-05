@@ -34,14 +34,11 @@ One thing that took us a while to figure out, though, was that, if we made chang
 | reading documentation |      |       |       | 2      | 2      |
 | configuration/setup   |      |       |       | 2      | 2      |
 | analyzing code/output |      |       |       | 2      | 3      |
-| writing documentation |      |       |       | 2      | 1      |
-| writing code          |      |       |       | 3      | 5      |
+| writing documentation |      |       |       | 3      | 1      |
+| writing code          |      |       |       | 4      | 5      |
 | running code          |      |       |       | 4      | 4      |
-| total                 |      |       |       |        |        |
+| total                 |      |       |       | 22     |        |
 
-For setting up tools and libraries (step 4), enumerate all dependencies
-you took care of and where you spent your time, if that time exceeds
-30 minutes.
 
 ## Overview of issue and work done.
 
@@ -52,7 +49,7 @@ URL: https://github.com/beeware/toga/issues/1814
 This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place.
 
 
-## Requirements for the new feature or requirements affected by functionality being refactored
+## Requirements for the new feature
 
 | Requirements                | ID  | Description                                                                                                                                                              | Linked requirement                                                                                                                                                                                                                                                                                                    |
 | --------------------------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,9 +72,13 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 | 11                          | R11 | The travertino libary should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`. | [R11 constants](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/constants.py), [R11 file](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/src/travertino/fonts.py), [R11 test](https://github.com/DD2480-Group22-2025/toga/blob/main/travertino/tests/test_fonts.py) |
 | 12                          | R12 | The CoreAPI should support and test the use of CSS keywords `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`, and `larger`.           | [R12 file](https://github.com/DD2480-Group22-2025/toga/blob/main/core/src/toga/style/pack.py), [R12 test](https://github.com/DD2480-Group22-2025/toga/blob/main/core/tests/style/pack/test_css.py)                                                                                                                    |
 
-## Changes Made
+## Changes made
 
-### CoreAPI
+We made changes to 20 files in total, spanning over the CoreAPI, Travertino library, Testbed suite, and the 5 different backends each of us refactored. Expand the dropdowns below to see the side-by-side changes to each of the files. 
+
+<details> 
+<summary>CoreAPI</summary>
+
 `core/src/toga/stype/pack.py`
 ![image](https://github.com/user-attachments/assets/e4901d3f-a63a-4088-9416-e9efb940e939)
 
@@ -89,12 +90,18 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 
 `core/tests/style/pack/test_css.py`
 ![image](https://github.com/user-attachments/assets/aade6af0-a9e9-45fc-b2e8-c9d3f055f633)
+</details>
 
-### Testbed
+<details> 
+<summary>Testbed</summary>
+
 `testbed/tests/test_fonts.py`
 ![image](https://github.com/user-attachments/assets/8ef8d980-1aec-47fe-935e-88258fd5e4f8)
+</details>
 
-### Travertino
+<details> 
+<summary>Travertino</summary>
+
 `travertino/src/travertino/constants.py`
 ![image](https://github.com/user-attachments/assets/3e15f887-f458-4a74-9ee4-f94b51fa0df2)
 
@@ -106,8 +113,11 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 ![image](https://github.com/user-attachments/assets/11016a16-dc1a-427b-8910-1aafc604c0c3)
 ![image](https://github.com/user-attachments/assets/f973b767-f5fe-46f9-99d0-a1e6264b4ed6)
 
+</details>
 
-### Backend changes
+
+<details> 
+<summary>Backend Changes</summary>
 
 `android`
 ![image](https://github.com/user-attachments/assets/265a90f7-b415-41e8-801f-98be57235d85)
@@ -118,6 +128,9 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 ![image](https://github.com/user-attachments/assets/202bbb7a-1785-408d-bbbc-88378bd6ccc5)
 
 `gtk`
+![image](https://github.com/user-attachments/assets/105d67ca-7852-4ba8-8125-ee69095095a0)
+![image](https://github.com/user-attachments/assets/bb279334-8266-4aa4-8a7d-4d0b381c09ec)
+![image](https://github.com/user-attachments/assets/bfc1067f-800e-4837-a09a-4a02b53aa0a7)
 
 `ios`
 ![image](https://github.com/user-attachments/assets/6e63a18a-4731-4264-bad5-4be8cc8501bd)
@@ -127,9 +140,14 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 ![image](https://github.com/user-attachments/assets/35575557-c4ee-43e0-babe-aff9d6501cd1)
 ![image](https://github.com/user-attachments/assets/1c12e0e4-4094-4376-bf7f-3f61cba649f4)
 
+</details> 
+
 ## Test results
 
 The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. The original results are pictured below.
+
+<details> 
+<summary>Original Results</summary>
 
 Original test results:
 ![image](https://github.com/user-attachments/assets/e0269ca2-33a6-4f46-b434-fb6e9d420ac0)
@@ -142,9 +160,15 @@ Original coverage reports:
 Original CI pipeline results:
 ![image](https://github.com/user-attachments/assets/7a782076-4acb-4362-a62b-d643da7be28e)
 
+</details>
+
+
 During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
 After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below.
+
+<details> 
+<summary>Refactored Results</summary>
 
 Refactored test results:
 
@@ -152,10 +176,13 @@ Refactored coverage report:
 
 Refactored CI results:
 
+</details>
+
+
 We implemented changes in multiple locations of the testbed to ensure that both our enhancements were correct, and so that our coverage remained at 100%. Within each operating system, we added tests to check whether or not the font size was an integer or a string from the `ABSOLUTE_FONT_SIZES` or from the `RELATIVE_FONT_SIZES` and if the size matched what the expected font size should be. We updated the test suites for core and travertino to ensure that each size option (`int`, `ABSOLUTE_FONT_SIZES`, `RELATIVE_FONT_SIZE`, `SYSTEM_DEFAULT_FONT_SIZE`) was tested for each operating system. These changes allowed for us to make sure that our implementations were correct and provided full coverage. 
 
-## UML class diagram and its description
-
+## UML class diagrams
+Our UML class diagrams are locaed in `UML.md`.
 
 ## Way of working
 We began this issue and we originally thought that the changes would not take as much time. Our plan was to finish the first issue in the first week and take a second issue for the second week. However, due to the complexity of the different requirements and testing environments for each of our systems, we continuously ran into problems regarding running the tests and making sure we had compatible systems with the operating systems we were trying to implement. 
