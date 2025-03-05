@@ -51,6 +51,7 @@ URL: https://github.com/beeware/toga/issues/1814
 
 This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `smaller`) can be used to make it easier to create text among the 5 different backends. There are 5 architectures supported: Android, IOS, Windows, Cocoa, and GTK. These changes also need to be compatible with the testing infrastructure already in place.
 
+
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
 | Requirements                | ID  | Description                                                                                                                                                              | Linked requirement                                                                                                                                                                                                                                                                                                    |
@@ -76,6 +77,7 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 
 ## Changes Made
 
+### CoreAPI
 `core/src/toga/stype/pack.py`
 ![image](https://github.com/user-attachments/assets/e4901d3f-a63a-4088-9416-e9efb940e939)
 
@@ -88,9 +90,11 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 `core/tests/style/pack/test_css.py`
 ![image](https://github.com/user-attachments/assets/aade6af0-a9e9-45fc-b2e8-c9d3f055f633)
 
+### Testbed
 `testbed/tests/test_fonts.py`
 ![image](https://github.com/user-attachments/assets/8ef8d980-1aec-47fe-935e-88258fd5e4f8)
 
+### Travertino
 `travertino/src/travertino/constants.py`
 ![image](https://github.com/user-attachments/assets/3e15f887-f458-4a74-9ee4-f94b51fa0df2)
 
@@ -102,9 +106,14 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 ![image](https://github.com/user-attachments/assets/11016a16-dc1a-427b-8910-1aafc604c0c3)
 ![image](https://github.com/user-attachments/assets/f973b767-f5fe-46f9-99d0-a1e6264b4ed6)
 
-`android`
 
-Cocoa changes:
+### Backend changes
+
+`android`
+![image](https://github.com/user-attachments/assets/265a90f7-b415-41e8-801f-98be57235d85)
+![image](https://github.com/user-attachments/assets/df9eafce-10b1-4537-9451-5b40b4585780)
+
+`cocoa`
 ![image](https://github.com/user-attachments/assets/cf991ea5-93f7-40bd-92cd-04026bda6894)
 ![image](https://github.com/user-attachments/assets/202bbb7a-1785-408d-bbbc-88378bd6ccc5)
 
@@ -130,7 +139,10 @@ Original coverage reports:
 ![image](https://github.com/user-attachments/assets/7ae4055f-5e73-431a-8807-e3ae8870a7d9)
 ![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
 
-During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures.
+Original CI pipeline results:
+![image](https://github.com/user-attachments/assets/7a782076-4acb-4362-a62b-d643da7be28e)
+
+During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
 After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below.
 
@@ -138,22 +150,18 @@ Refactored test results:
 
 Refactored coverage report:
 
-We implemented changes in multiple locations of the testbed to ensure that both our enhancements were correct, and so that our coverage remained at 100%. Within each operating system, we added tests to check whether or not the font size was an integer or a string from the `ABSOLUTE_FONT_SIZES` or from the `RELATIVE_FONT_SIZES` and if the size matched what the expected font size should be. We updated the test suites for core and travertino to ensure that each size option (`int`, `ABSOLUTE_FONT_SIZES`, `RELATIVE_FONT_SIZE`, `SYSTEM_DEFAULT_FONT_SIZE`) was tested for each operating system. These changes allowed for us to make sure that our implementations were correct and provided full coverage.
+Refactored CI results:
+
+We implemented changes in multiple locations of the testbed to ensure that both our enhancements were correct, and so that our coverage remained at 100%. Within each operating system, we added tests to check whether or not the font size was an integer or a string from the `ABSOLUTE_FONT_SIZES` or from the `RELATIVE_FONT_SIZES` and if the size matched what the expected font size should be. We updated the test suites for core and travertino to ensure that each size option (`int`, `ABSOLUTE_FONT_SIZES`, `RELATIVE_FONT_SIZE`, `SYSTEM_DEFAULT_FONT_SIZE`) was tested for each operating system. These changes allowed for us to make sure that our implementations were correct and provided full coverage. 
 
 ## UML class diagram and its description
 
-### Key changes/classes affected
 
-Optional (point 1): Architectural overview.
+## Way of working
+We began this issue and we originally thought that the changes would not take as much time. Our plan was to finish the first issue in the first week and take a second issue for the second week. However, due to the complexity of the different requirements and testing environments for each of our systems, we continuously ran into problems regarding running the tests and making sure we had compatible systems with the operating systems we were trying to implement. 
 
-Optional (point 2): relation to design pattern(s).
+Our team is currently in the **Working Well**. We have a good flow together and continuously keep in contact and stay on top of our commitments. In this project, we really worked together and communicated our needs so that we were able to complete the project and help each other if needed. We stuck to our guidelines that we created in the beginning. After this week, we will move to the **Retired** since this is the last project for this course. This means that our responsibilities are done and we will soon move on to new projects with different groups. We have learned a lot about working in a team and have found a system that works well for us. 
 
-## Overall experience
+We can recognize the benefits and limitations of our work in the context of modern software engineering practices. This approach, which was guided by the SEMAT kernel, helped us maintain industry standards. We found that good documentation was really important for starting to work on already established projects. In our project for P3, the documentation helped our onboarding experience and we were able to quickly set up and move on to our analysis. In this project, while the documentation was really good and clearly stated, it was difficult to find the exact documentation that we needed to read since there were many for different versions that had key differences which were essential for running the tests and the program. Another thing we learned from this work was the importance of good testing. We found that in P3 the lack of testing really made it difficult to analyze the project. In this project, we had really great testing which also came with 100\% code coverage which made it easy to expand on their tests and to ensure that our code implementations and refactorings were correct. 
 
-What are your main take-aways from this project? What did you learn?
 
-How did you grow as a team, using the Essence standard to evaluate yourself?
-
-Optional (point 6): How would you put your work in context with best software engineering practice?
-
-Optional (point 7): Is there something special you want to mention here?
