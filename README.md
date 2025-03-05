@@ -184,78 +184,22 @@ We implemented changes in multiple locations of the testbed to ensure that both 
 <summary>UML Diagrams for Core Changes</summary>
 
 **Core fonts before**
-```mermaid
-classDiagram
-    class Font {
-      +family: String
-      +size: int | String
-      +weight: String
-      +style: String
-      +variant: String
-      +__str__(): String
-    }
-%% Original __str__ method:
-%% if size == SYSTEM_DEFAULT_FONT_SIZE then "default size"
-%% else returns f"{size}pt"
-```
+
+![core fonts before](UML/core_fonts_before.png)
+
 **Core fonts after**
 
-```mermaid
-classDiagram
-    class Font {
-      +family: String
-      +size: int | String
-      +weight: String
-      +style: String
-      +variant: String
-      +__str__(): String
-    }
-    class TravertinoConstants {
-      <<constant>>
-      +ABSOLUTE_FONT_SIZES
-      +RELATIVE_FONT_SIZES
-    }
-    Font ..> TravertinoConstants : uses
-%% Updated __str__ method:
-%% if size is in ABSOLUTE_FONT_SIZES or RELATIVE_FONT_SIZES then returns the keyword
-%% else returns f"{size}pt"
-```
+![core fonts after](UML/core_fonts_after.png)
 
 In the updated core Font file (core/src/toga/fonts.py), the str method now accepts font sizes as either a number or a CSS keyword. If the size is a CSS keyword (found in ABSOLUTE_FONT_SIZES or RELATIVE_FONT_SIZES), it outputs that keyword directly; otherwise, it appends "pt" to numeric values. Tests in core/tests/test_fonts.py verify that the string representation is correct for both numeric sizes and keywords (e.g., "small", "large").
 
-
 **Core pack before**
 
-```mermaid
-classDiagram
-    class IntrinsicSize {
-      +font_size: int
-      +__css__(): String
-    }
-%% Original __css__ method:
-%% if font_size != SYSTEM_DEFAULT_FONT_SIZE then output "font-size: {font_size}pt;"
-
-```
+![core pack before](UML/core_pack_before.png)
 
 **Core pack after**
 
-```mermaid
-classDiagram
-    class IntrinsicSize {
-      +font_size: int | str
-      +__css__(): String
-    }
-    class TravertinoConstants {
-      <<constant>>
-      +ABSOLUTE_FONT_SIZES
-      +RELATIVE_FONT_SIZES
-    }
-    IntrinsicSize ..> TravertinoConstants : uses
-%% Updated __css__ method:
-%% if font_size is a keyword then output "font-size: {font_size};"
-%% else output "font-size: {font_size}pt;"
-```
-Similarly, in the Pack file (core/src/toga/style/pack.py), the css method has been updated. Originally, it always added "pt" to the font size if it was numeric. In the new implementation, if the font_size is a CSS keyword, it outputs the keyword directly (e.g., "small" or "large"); if it’s numeric, it still appends "pt". The tests in core/tests/style/pack/test_css.py confirm that both numeric values and CSS keywords produce the expected CSS output.
+![core pack after](UML/core_pack_after.png)
 </details>
 
 <details> 
@@ -263,38 +207,11 @@ Similarly, in the Pack file (core/src/toga/style/pack.py), the css method has be
 
 **Travertino fonts before**
 
-```mermaid
-classDiagram
-    class Font {
-      +family
-      +size
-      +style
-      +variant
-      +weight 
-    }
-```
+![travertino fonts before](UML/travertino_fonts_before.png)
 
 **Travertino fonts after**
-```mermaid
-classDiagram
-    class Font {
-      +family
-      +size
-      +style
-      +variant
-      +weight 
-    }
-    
-    class FontSizeConstants {
-      <<constant>>
-      +ABSOLUTE_FONT_SIZES: Dict
-      +FONT_SIZE_SCALE: Dict
-      +RELATIVE_FONT_SIZES: Dict
-      +RELATIVE_FONT_SIZE_SCALE: Dict
-    } 
 
-    Font ..> FontSizeConstants : uses
-```
+![travertino fonts after](UML/travertino_fonts_after.png)
 
 Travertino is a library for "describing constants and a base box model that can be used to define layout algorithms". In it constants have been defined for scaling font sizes based on system default sizes. The library defines Font clases which are later used in the Togo core to define fonts. The font class has been altered to recognize and handle RELATIVE and ABSOLUTE font sizes, otherwise it remains unchanged.
 
@@ -306,58 +223,12 @@ The ABSOLUTE_FONT_SIZES is defined as a dictionary of different available size m
 
 **Backend fonts Before**
 
-```mermaid
-classDiagram
-    class FontInterface {
-      +family: String
-      +size: Number | String
-      +weight: String
-      +style: String
-      +variant: String
-      +_registered_font_key(): String
-    }
-    
-    class Font {
-      -interface: FontInterface
-      -native: NSFont
-      +__init__(interface)
-    }
-    
-    
-    FontInterface <|-- Font
+![backend fonts before](UML/backend_fonts_before.png)
 
-```
 **Backend fonts After**
 
-```mermaid
-classDiagram
-    class FontInterface {
-      +family: String
-      +size: Number | String
-      +weight: String
-      +style: String
-      +variant: String
-      +_registered_font_key(): String
-      +_parent_size: Number
-    }
-    
-    class Font {
-      -interface: FontInterface
-      -native: NSFont
-      +__init__(interface)
-    }
-    
-    class FontSizeConstants {
-      <<constant>>
-      +ABSOLUTE_FONT_SIZES
-      +FONT_SIZE_SCALE
-      +RELATIVE_FONT_SIZES
-      +RELATIVE_FONT_SIZE_SCALE
-    }
+![backend fonts after](UML/backend_fonts_after.png)
 
-    FontInterface <|-- Font
-    Font ..> FontSizeConstants : uses
-```
 The original font implementation only supported numeric font sizes. It computed the final size by checking if the size was the system default or by converting a numeric CSS value using a fixed multiplier. This is somewhat appliable for all font clases, therefore we do not make one for each. 
 
 The refactored version now supports CSS font size keywords (like “small”, “medium”, “large”). The interface was extended to accept string values, and lookup tables (ABSOLUTE_FONT_SIZES, FONT_SIZE_SCALE, RELATIVE_FONT_SIZES, and RELATIVE_FONT_SIZE_SCALE) from Travertino are used to convert these keywords into numeric sizes. The updated UML diagram shows that the Font class now leverages these constants to dynamically compute the font size—while still handling numeric values as before—resulting in more consistent font sizing across platforms while following each platform’s UI guidelines.
