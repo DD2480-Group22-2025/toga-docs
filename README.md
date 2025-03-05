@@ -18,13 +18,13 @@ If you changed the project, how did your experience differ from before?
 |topic                | Carl | Klara | Jacob | Phoebe | Samuel |
 |---------------------|------|-------|-------|--------|--------|
 |discussions/meetings |   5  |   5   |   5   |    5   |   4    |
-|reading documentation|      |       |       |    2   |   2    |
-|configuration/setup  |      |       |       |    2   |   2    | 
-|analyzing code/output|      |       |       |    2   |   3    |
-|writing documentation|      |       |       |    2   |   1    |
-|writing code         |      |       |       |    3   |   5    |
-|running code         |      |       |       |    4   |   4    |
-|total                |      |       |       |        |        |
+|reading documentation|      |   2   |       |    2   |   2    |
+|configuration/setup  |      |   5   |       |    2   |   2    | 
+|analyzing code/output|      |   3   |       |    2   |   3    |
+|writing documentation|      |   3   |       |    2   |   1    |
+|writing code         |      |   2   |       |    3   |   5    |
+|running code         |      |   5   |       |    4   |   4    |
+|total                |      |  25   |       |        |        |
 
 For setting up tools and libraries (step 4), enumerate all dependencies
 you took care of and where you spent your time, if that time exceeds
