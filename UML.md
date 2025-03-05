@@ -35,7 +35,9 @@ classDiagram
 
     Font ..> FontSizeConstants : uses
 ```
+Travertino is a library for "describing constants and a base box model that can be used to define layout algorithms". In it constants have been defined for scaling font sizes based on system default sizes. The library defines Font clases which are later used in the Togo core to define fonts. The font class has been altered to recognize and handle RELATIVE and ABSOLUTE font sizes, otherwise it remains unchanged.
 
+The ABSOLUTE_FONT_SIZES is defined as a dictionary of different available size modifiers {XX_SMALL, X_SMALL, SMALL, MEDIUM, LARGE, X_LARGE, XX_LARGE}, where MEDIUM is the same size as system default, while each step up and down either increases or decreases the size by 20 %. RELATIVE_FONT_SIZES is a dictionary containing size modifiers {SMALLER, LARGER}, which indicate that a font is 20 % smaller or larger than that of its parent. 
 
 ## UML Diagram for Backend Fonts Modules
 ### Backend fonts Before
