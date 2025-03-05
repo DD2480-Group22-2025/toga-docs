@@ -88,6 +88,8 @@ This issue is to make sure that the font size keywords (`xx-small`, `x-small`, `
 ![image](https://github.com/user-attachments/assets/f973b767-f5fe-46f9-99d0-a1e6264b4ed6)
 
 `android`
+![image](https://github.com/user-attachments/assets/265a90f7-b415-41e8-801f-98be57235d85)
+![image](https://github.com/user-attachments/assets/df9eafce-10b1-4537-9451-5b40b4585780)
 
 Cocoa changes:
 ![image](https://github.com/user-attachments/assets/cf991ea5-93f7-40bd-92cd-04026bda6894)
