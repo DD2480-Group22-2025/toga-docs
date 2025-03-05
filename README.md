@@ -118,6 +118,10 @@ Original coverage reports:
 ![image](https://github.com/user-attachments/assets/7ae4055f-5e73-431a-8807-e3ae8870a7d9)
 ![image](https://github.com/user-attachments/assets/d0cbeeaf-da71-459e-bbba-23339997eeca)
 
+Original CI pipeline results:
+![image](https://github.com/user-attachments/assets/7a782076-4acb-4362-a62b-d643da7be28e)
+
+
 During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
 After refactoring, we were able to increase the number of tests and ensure that the testing coverage stayed at 100%. The results are seen below. 
