@@ -32,11 +32,11 @@ One thing that took us a while to figure out, though, was that, if we made chang
 | discussions/meetings  | 5    | 5     | 5     | 5      | 4      |
 | reading documentation | 3    | 2     |       | 2      | 2      |
 | configuration/setup   | 8    | 5     |       | 2      | 2      |
-| analyzing code/output | 16   | 3     |       | 2      | 3      |
+| analyzing code/output | 16   | 3     |       | 5      | 3      |
 | writing documentation | 1    | 4     |       | 3      | 1      |
 | writing code          | 3    | 2     |       | 4      | 5      |
 | running code          | 8    | 4     |       | 4      | 4      |
-| total                 | 44   | 25    |       | 22     |        |
+| total                 | 44   | 25    |       | 25     |        |
 
 
 ## Overview of issue and work done.
@@ -102,15 +102,15 @@ We made changes to 20 files in total, spanning over the CoreAPI, Travertino libr
 <summary>Travertino</summary>
 
 `travertino/src/travertino/constants.py`
-![image](https://github.com/user-attachments/assets/3e15f887-f458-4a74-9ee4-f94b51fa0df2)
+![image](https://github.com/user-attachments/assets/d58291b6-9b73-479e-88c9-efaa33870ad1)
 
 `travertino/src/travertino/fonts.py`
 ![image](https://github.com/user-attachments/assets/fe057516-eece-4de8-b8b1-6fb026e34ee6)
 
 `travertino/tests/test_fonts.py`
-![image](https://github.com/user-attachments/assets/a4a6eb02-bc00-4702-819d-61f21e117b0a)
-![image](https://github.com/user-attachments/assets/11016a16-dc1a-427b-8910-1aafc604c0c3)
-![image](https://github.com/user-attachments/assets/f973b767-f5fe-46f9-99d0-a1e6264b4ed6)
+![image](https://github.com/user-attachments/assets/795acc70-c283-4f6a-863d-b07d21fa846e)
+![image](https://github.com/user-attachments/assets/73d4727d-d61e-4267-865c-1190f2d55fa9)
+![image](https://github.com/user-attachments/assets/53731082-072e-4455-8d61-2d9527fe0615)
 
 </details>
 
@@ -119,8 +119,8 @@ We made changes to 20 files in total, spanning over the CoreAPI, Travertino libr
 <summary>Backend Changes</summary>
 
 `android`
-![image](https://github.com/user-attachments/assets/265a90f7-b415-41e8-801f-98be57235d85)
-![image](https://github.com/user-attachments/assets/df9eafce-10b1-4537-9451-5b40b4585780)
+![image](https://github.com/user-attachments/assets/80eb336c-10e0-4149-9108-f0d72c1754f3)
+![image](https://github.com/user-attachments/assets/2f616ac8-38c5-4138-9cd2-53b839eb015f)
 
 `cocoa`
 ![image](https://github.com/user-attachments/assets/cf991ea5-93f7-40bd-92cd-04026bda6894)
@@ -164,21 +164,22 @@ Original CI pipeline results:
 
 During our refactoring process, we created more tests to ensure that our enhancements were correct. To test our specific test updates we ran `briefcase dev --test -- test/path/test_fonts.py` from the `testbed` directory. This gave results for the specific tests relating to fonts over all of the architectures. We also were able to run `briefcase dev --test` which ran all of the tests in the testbed but it takes around 10 minutes to run. 
 
-After refactoring, we were able to increase the number of tests from 2743 to 2757 (+14) and 654 to 665 (+11) for the Core and Travertino test suites! We also ensured that the coverage stayed at 100% and increased the statements and branches. Below we have the results of our testing as well as the final CI pipeline. 
+After refactoring, we were able to increase the number of tests from 2743 to 2757 (+14) and 654 to 663 (+9) for the Core and Travertino test suites! We also ensured that the coverage stayed at 100%. Below we have the results of our testing as well as the final CI pipeline (which passes!) 
 
 <details> 
 <summary>Refactored Results</summary>
 
 Refactored test results:
 ![image](https://github.com/user-attachments/assets/b34b30ec-3c7d-43ac-800b-ad2571bcb5dd)
-![image](https://github.com/user-attachments/assets/48946e21-dc83-479e-acdb-2f30463d859f)
+![image](https://github.com/user-attachments/assets/0f7e4b59-f78e-4d9c-9072-315254fa28e4)
 
 Refactored coverage report:
 ![image](https://github.com/user-attachments/assets/13c953d9-6cb0-416d-826d-b3793f4e38d2)
-![image](https://github.com/user-attachments/assets/b1ebee61-ea55-4148-8d45-7404c53eef5f)
+![image](https://github.com/user-attachments/assets/14e84444-69c6-4765-8dfb-8ffc2fefc0e9)
 
 
 Refactored CI results:
+![image](https://github.com/user-attachments/assets/b90f86e6-e5f6-42f0-b796-9bc543b01065)
 
 
 </details>
