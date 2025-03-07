@@ -141,6 +141,12 @@ We made changes to 20 files in total, spanning over the CoreAPI, Travertino libr
 
 </details> 
 
+<details>
+<summary>Commit History</summary>
+  
+![image](https://github.com/user-attachments/assets/a3fd9399-f522-486d-811e-16f579e13350)
+</details>
+
 ## Test results
 
 The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests for the CoreAPI and 645 tests for Travertino written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. We also ran the CI pipeline each time we made a pull request. The original CI pipeline passed. The original results are pictured below.
