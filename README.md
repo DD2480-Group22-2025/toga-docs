@@ -36,7 +36,7 @@ One thing that took us a while to figure out, though, was that, if we made chang
 | writing documentation | 1    | 4     | 1     | 3      | 1      |
 | writing code          | 3    | 2     | 5     | 4      | 5      |
 | running code          | 8    | 4     | 2     | 4      | 4      |
-| total                 | 44   | 25    | 30    | 25     |        |
+| total                 | 44   | 25    | 30    | 25     | 21     |
 
 
 ## Overview of issue and work done.
