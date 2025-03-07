@@ -249,10 +249,39 @@ The refactored version now supports CSS font-size keywords (like `small`, `mediu
 </details>
 
 ## Way of working
-We began this issue and we originally thought that the changes would not take as much time. Our plan was to finish the first issue in the first week and take a second issue for the second week. However, due to the complexity of the different requirements and testing environments for each of our systems, we continuously ran into problems regarding running the tests and making sure we had compatible systems with the operating systems we were trying to implement. 
+We began this issue and we originally thought that the changes would not take as much time. Our plan was to finish the first issue in the first week and take a second issue in the second week. However, due to the complexity of the different requirements and testing environments for each of our systems, we continuously ran into problems regarding running the tests and making sure we had compatible systems with the operating systems we were trying to implement. 
 
-Our team is currently in the **Working Well**. We have a good flow together and continuously keep in contact and stay on top of our commitments. In this project, we really worked together and communicated our needs so that we were able to complete the project and help each other if needed. We stuck to our guidelines that we created in the beginning. After this week, we will move to the **Retired** since this is the last project for this course. This means that our responsibilities are done and we will soon move on to new projects with different groups. We have learned a lot about working in a team and have found a system that works well for us. 
+Our team is currently in the **Working Well**. We have a good flow together and continuously keep in contact and stay on top of our commitments. In this project, we really worked together and communicated our needs so that we were able to complete the project and help each other if needed. We stuck to the guidelines that we created in the beginning. After this week, we will move to the **Retired** since this is the last project for this course. This means that our responsibilities are done and we will soon move on to new projects with different groups. We have learned a lot about working in a team and have found a system that works well for us. 
 
 We can recognize the benefits and limitations of our work in the context of modern software engineering practices. This approach, which was guided by the SEMAT kernel, helped us maintain industry standards. We found that good documentation was really important for starting to work on already established projects. In our project for P3, the documentation helped our onboarding experience and we were able to quickly set up and move on to our analysis. In this project, while the documentation was really good and clearly stated, it was difficult to find the exact documentation that we needed to read since there were many for different versions that had key differences which were essential for running the tests and the program. Another thing we learned from this work was the importance of good testing. We found that in P3 the lack of testing really made it difficult to analyze the project. In this project, we had really great testing which also came with 100\% code coverage which made it easy to expand on their tests and to ensure that our code implementations and refactorings were correct. 
 
+# Arcitecture overview for P+
+
+## Purpose of Toga (P+ 1.)
+Toga is a cross-platform graphical user interface (GUI) that is designed to allow developers to build native applications with Python. It is a part of the BeeWare project, which is an open-source collection of tools and libraries that allow for writing and deploying applications on multiple platforms using Python. Toga makes it possible to write applications once and deploy them on Windows, macOS, Android, Linux, and iOS. It uses each platform's native widgets which allow the applications to look consistent across each of the operating systems. 
+
+The purpose of Toga is to allow Python developers a way to build native applications without knowing multiple GUI frameworks across different platforms. This makes it possible to develop applications that are lightweight and flexible across different operating systems. 
+
+## System Architecture
+
+Toga contains a CoreAPI which allows for high-level abstraction of UI elements across platforms. It supports native GUI toolkits for 6 different operating systems. The bridging layer allows the applications to function uniformly across the different operating systems. Recently, Toga implemented the use of the Travertino Library which allows for a flexible management system for UI elements so they can be consistent and adapted across the different platforms. A diagram of the Toga architecture is shown below. 
+
+```mermaid
+graph TD;
+    A[Application Code] -->|Uses| B[Toga Core API];
+    B -->|Interfaces with| C[Platform Backends];
+    B -->|Uses| J[Travertino Layout Engine];
+    
+    C --> D[Windows WinForms];
+    C --> E[macOS Cocoa];
+    C --> F[Linux GTK];
+    C --> G[iOS UIKit];
+    C --> H[Android Native UI];
+    C --> I[Web HTML,CSS,JavaScript];
+    
+    J -->|Manages Layout for| C;
+```
+
+## Updates in context (P+ 2.)
+Our implementation of the Toga issue **Support CSS font-size keywords** allowed for better uniformity across platforms for font size and supporting the use of CSS keywords such as *small, medium, large* and relative font size like *smaller, and larger*. We added the font size choices into `core/src/toga/style/pack` to have the keywords accessible. Since each operating system had its own default sizes and naming conventions, we needed to split up the work for each of the operating systems. We each took one operating system to implement the CSS font-size keyword handling and updated the tests to ensure that they passed and had full coverage. Within each operating system, we updated the Font source code to change the font size accordingly. We also updated the operating system-specific font-size tests. In order to properly test that our implementations were correct, we updated the CoreAPI tests in `core\tests` to ensure that each keyword was being tested with the font tests. 
 
