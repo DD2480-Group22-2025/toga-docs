@@ -266,6 +266,9 @@ Our experience with the Toga project was highly positive, particularly in terms 
 
 The community interaction was particularly helpful. When we encountered challenges, especially with GTK implementation, the project maintainers (@mhsmith and @freakboy3742) were quick to provide detailed guidance. For example, when we faced issues with Pango's font size handling in GTK, they offered multiple solution approaches, including caching default font sizes and exploring GTK's CSS rendering system. This kind of responsive and constructive feedback from the community significantly aided our progress.
 
+<img width="858" alt="image" src="https://github.com/user-attachments/assets/6f77cb05-e74e-48a2-806e-e394f4607dc2" />
+
+
 Using the Essence framework, our team progressed through several states:
 
 1. **Formed** - Initial team formation and project selection
