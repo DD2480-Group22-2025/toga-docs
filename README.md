@@ -147,6 +147,19 @@ We made changes to 20 files in total, spanning over the CoreAPI, Travertino libr
 ![image](https://github.com/user-attachments/assets/a3fd9399-f522-486d-811e-16f579e13350)
 </details>
 
+We also wrote a patch note:
+
+<img width="1163" alt="image" src="https://github.com/user-attachments/assets/8d250c56-39ce-4969-84a7-3600abd70f4f" />
+
+Link: [file](https://github.com/DD2480-Group22-2025/toga/blob/main/changes/1814.misc.rst)
+
+We also made changes to the docs, reflecting this new feature:
+
+<img width="809" alt="image" src="https://github.com/user-attachments/assets/420b5a3e-91de-48bf-b71e-cea3adb9185f" />
+
+Link: [file](https://github.com/DD2480-Group22-2025/toga/blob/main/docs/reference/style/pack.rst)
+
+
 ## Test results
 
 The test results in toga are very well written with many assertions. This project contains 100% coverage report with over 2743 tests for the CoreAPI and 645 tests for Travertino written. By running testing through `tox -m test` it runs both of the testing suites (`core` and `travertino`) and outputs the coverage results. We also ran the CI pipeline each time we made a pull request. The original CI pipeline passed. The original results are pictured below.
